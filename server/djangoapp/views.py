@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from datetime import datetime
+from django.views import generic
 import logging
 import json
 
@@ -15,15 +16,24 @@ logger = logging.getLogger(__name__)
 
 
 # Create your views here.
-
+# Update the `get_dealerships` view to render the index page with a list of dealerships
+def get_dealerships(request):
+    context = {}
+    if request.method == "GET":
+        return render(request, 'djangoapp/index.html', context)
 
 # Create an `about` view to render a static about page
-# def about(request):
-# ...
+def about_us(request):
+    context = {}
+    if request.method == "GET":
+        return render(request, 'djangoapp/about.html', context)
 
 
 # Create a `contact` view to return a static contact page
-#def contact(request):
+def contact_us(request):
+    context = {}
+    if request.method == "GET":
+        return render(request, 'djangoapp/contact.html', context)
 
 # Create a `login_request` view to handle sign in request
 # def login_request(request):
@@ -37,11 +47,7 @@ logger = logging.getLogger(__name__)
 # def registration_request(request):
 # ...
 
-# Update the `get_dealerships` view to render the index page with a list of dealerships
-def get_dealerships(request):
-    context = {}
-    if request.method == "GET":
-        return render(request, 'djangoapp/index.html', context)
+
 
 
 # Create a `get_dealer_details` view to render the reviews of a dealer
