@@ -14,7 +14,7 @@ import json
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
-
+#test comment
 # Create your views here.
 # Update the `get_dealerships` view to render the index page with a list of dealerships
 def get_dealerships(request):
