@@ -122,7 +122,6 @@ def add_review(request, id):
             payload = dict()
             car_id = request.POST["car"]
             car = CarModel.objects.get(pk=car_id)
-            carmake = CarMake.objects.all()
             payload["time"] = datetime.utcnow().isoformat()
             payload["name"] = username
             payload["dealership"] = id
@@ -133,7 +132,7 @@ def add_review(request, id):
                 if request.POST["purchasecheck"] == 'on':
                     payload["purchase"] = True
             payload["purchase_date"] = request.POST["purchasedate"]
-            payload["car_make"] = carmake.name
+            payload["car_make"] = car.make.name
             payload["car_model"] = car.modelName
             payload["car_year"] = int(car.year.strftime("%Y"))
 
